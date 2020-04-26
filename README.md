@@ -160,6 +160,8 @@ fig = sns.heatmap(X_reorg, cmap=cmap, xticklabels=False, yticklabels=False)
 plt.savefig('co-cluster.tif', dpi=600, format='tif')
 ```
 
+![Figure_3](Figure_3.png)
+
 #### Re-organize samples for each row clusters to train multiple classifiers
 
 ```
