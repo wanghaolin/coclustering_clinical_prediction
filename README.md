@@ -5,13 +5,15 @@ The goal of this notebook is to provide some technical details (key steps) for o
 
 To improve the performance of clinical prediction models addressing the incompleteness of EHRs data, the proposed method performed co-clustering to address the incompleteness of clinical data, group Lasso for group-based feature selection, and Explainable Boosting Machine for group-specific prediction in a sequential manner.
 
-Fig 1. The block-wise missing patterns characterized by co-clustering.
-
 ![Figure_1](Figure_1.png)
 
-Fig 2. The proposed multiple classifier system with static classifier selection based on co-clustering.
+
+
+Fig 1. The block-wise missing patterns characterized by co-clustering.
 
 ![Figure_2](Figure_2.png)
+
+Fig 2. The proposed multiple classifier system with static classifier selection based on co-clustering.
 
 ### Tools and Implementation
 
@@ -161,6 +163,8 @@ plt.savefig('co-cluster.tif', dpi=600, format='tif')
 ```
 
 ![Figure_3](Figure_3.png)
+
+Fig 3. Co-clustering of the real-world clinical dataset
 
 #### Re-organize samples for each row clusters to train multiple classifiers
 
