@@ -2,9 +2,9 @@
 
 ### Introduction
 
-The goal of this notebook is to provide some technical details (key steps) for our submitted manuscript: 
+The goal of this notebook is to provide some technical details (key steps) for our paper: 
 
-> *Haolin Wang, et al. "Integrating Co-clustering and Interpretable Machine Learning for the Prediction of Intravenous Immunoglobulin Resistance in Kawasaki Disease", 2020.* 
+> *Haolin Wang, et al. "Integrating Co-clustering and Interpretable Machine Learning for the Prediction of Intravenous Immunoglobulin Resistance in Kawasaki Disease", IEEE ACCESS, 2020.* 
 
 To enable clinically applicable prediction addressing the incompleteness of clinical data and the lack of interpretability of machine learning models, a multi-stage method is developed by integrating data missing pattern mining and intelligible models. First, co-clustering is adopted to characterize the block-wise data missing patterns by simultaneously grouping the clinical features and patients to enable (a) group-based feature selection and missing data imputation and (b) patient subgroup-specific predictive models considering the availability of data. Second, feature selection is performed using the group Lasso to uncover group-specific risk factors. Third, the Explainable Boosting Machine, which is an interpretable learning method based on generalized additive models, is applied for the prediction of each patient subgroup.
 
@@ -234,6 +234,7 @@ predict_test_label += list(co_test_label)
 
 ```
 from sklearn.metrics import precision_recall_fscore_support
+from sklearn.metrics import average_precision_score
 
 #for 5-fold cross-validation
 for index in range(1, 6):
@@ -259,7 +260,7 @@ for index in range(1, 6):
             keep_score = score
             best_f1 = score[2]
     best_score.append(keep_score)
-    average_pr.append((keep_score[0] + keep_score[1])/2)
+    average_pr.append(average_precision_score(test_label, prob, average='micro'))
 
 print(best_score)
 best_score_array = np.array(best_score)
